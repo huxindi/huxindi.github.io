@@ -11,7 +11,7 @@
   /* background-size: cover;  */
   margin: -31px; 
   margin-left:-7px;
-  border: 6px solid rgba(0, 77, 64, 0.4); 
+  border: 6px solid rgba(40, 65, 54, 0.4); 
   border-radius: 50% !important;
 }
 
@@ -41,7 +41,7 @@
   width: 50px;
   height: 50px;
   border: 0;
-  color: #FFFFFF;
+  color: #f8d794;
   cursor: pointer;
   font-size: 30px;
   line-height: 70px;
@@ -51,28 +51,28 @@
 }
 
 .github {
-  color: black;
+  color: #111a19;
 }
 
 .linkedin {
-  color: #0077b5;
+  color: #bb6830;
 }
 
 .angellist {
-  color: grey;
+  color: #809076;
 }
 
 .icon-btn:hover {
   transform: scale(1.10);
-  color: #FFFFFF;
+  color: #f8d794;
 }
 
 .linkedin:hover {
-  background-color: #0077b5;
+  background-color: #bb6830;
 }
 
 .angellist:hover {
-  background-color: grey;
+  background-color: #809076;
 }
 
 .github:hover {
@@ -84,9 +84,9 @@
 .readme {
   position: relative;
   padding: 11px 35px;
-  background: #fff;
-  color: #00796b;
-  border: 2px solid #fff;
+  background: #f8d794;
+  color: #93a292;
+  border: 2px solid #f8d794;
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 1px;
@@ -104,8 +104,8 @@
   position: relative;
   padding: 11px 35px;
   background: none;
-  color: #fff;
-  border: 2px solid #fff;
+  color: #f8d794;
+  border: 2px solid #f8d794;
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 1px;
@@ -116,8 +116,8 @@
 }
 
 .contactme:hover{
-  color: #00796b;
-  background-color: white;
+  color: #93a292;
+  background-color: #f8d794;
 }
 /* main body */
 
@@ -140,7 +140,7 @@ body {
 } */
 
 a {
-  color: #004d40;
+  color: #284139;
 }
 
 /* main blockqoute */
@@ -155,8 +155,8 @@ a {
 } */
 
 blockquote {
-  border-left: 5px solid #795548;
-  color: #795548;
+  border-left: 5px solid #6f4d38;
+  color: #6f4d38;
   font-size: 125%;
   font-weight: 400;
   margin: 20px 0;
@@ -175,7 +175,7 @@ blockquote * {
 /* main nav */
 
 nav {
-  background: white;
+  background: #f8d794;
   box-shadow: none;
   height: 0;
 }
@@ -257,8 +257,8 @@ ul.table-of-contents li.logo a.active, ul.table-of-contents li.logo a:hover {
 } */
 
 ul.side-nav.fixed li.logo {
-  background-color: #fafafa;
-  border-bottom: 1px solid #ddd;
+  background-color: #f8d794;
+  border-bottom: 1px solid #d5bb93;
   box-sizing: content-box;
   min-height: 90px;
   padding: 30px 30px 40px;
@@ -270,7 +270,7 @@ ul.side-nav.fixed li.logo a {
 }
 
 ul.table-of-contents li:not(.logo) a.active, ul.table-of-contents li:not(.logo) a:hover {
-  background-color: #fafafa;
+  background-color: #f8d794;
   border-left: 3px solid;
 }
 
@@ -325,7 +325,7 @@ h3 {
 }
 
 #intro.section .container {
-  color: white;
+  color: #f8d794;
   font-weight: 200;
   left: 0;
   position: absolute;
