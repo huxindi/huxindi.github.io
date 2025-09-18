@@ -76,63 +76,57 @@
 </head>
 
 <script>
-  // Array of your 3 projects (latest last)
   const projects = [
     {
       title: "Car Detection Model",
-      description: "An object detection machine learning model. "
+      shortDescription: "An object detection machine learning model",
+      image: "/assets/img/project-music-player.png",
+      tools: ["Python", "PyTorch"],
+      accomplishments: [
+        "Collaborated in an Agile Scrum team to contribute to the development of a Faster R-CNN based object detection and segmentation model for automated vehicles, focused on enhancing traffic and obstacle detection.",
+        "Spearheaded the acquisition and processing of 100,000+ images from various public datasets, emphasized efficient data pre-processing and conversion to tensors for optimal PyTorch performance.",
+        "Managed the design of a foundational model architecture with 30+ convolution layers and multiple pooling techniques to compare against the main model in our automated vehicle project.",
+        "Engaged in thorough theoretical testing and data-driven optimization of the model, focused on enhancing accuracy and robustness for automated driving systems."
+      ]
     },
     {
       title: "Map App",
-      description: "A GIS navigation system."
+      shortDescription: "A GIS navigation system",
+      image: "/assets/img/project-quizup-logo-1.png",
+      tools: ["C++"],
+      accomplishments: [
+        "Led the vision and scope definition through planning meetings, roadmap creation, and sprint planning.",
+        "Cached data from OpenStreetMap (OSM) API into custom data structures, reducing response time by 78% on average and 99% in extreme cases.",
+        "Enhanced a Dijkstra-based pathfinding algorithm, ranking 7th among 90+ teams in a competitive class project."
+      ]
     },
     {
       title: "Pixel War",
-      description: "An arcade-style game on FPGA using C and Assembly."
+      shortDescription: "An arcade-style game",
+      image: "/assets/img/project-blog-logo.jpg",
+      tools: ["C", "Assembly"],
+      accomplishments: [
+        "Led a two-person team to develop Pixel War Game, an arcade-style video game for FPGA board, implementing a git-based collaborative workflow.",
+        "Utilized C programming and hardware interrupts to manage 6 IO devices, achieving real-time responsiveness to PS/2 keyboard and DE1-Soc board inputs.",
+        "Designed a visually appealing game interface with VGA, earning an outstanding grade (85%) for high playability and aesthetics."
+      ]
     }
   ];
 
   let currentIndex = projects.length - 1; // start with latest
-  const projectsPerLoad = 1;
 
   function renderProjects(loadAll = false) {
     const container = document.getElementById("projects-container");
 
     if (loadAll) {
-      // Load ALL remaining projects
       for (let i = currentIndex; i >= 0; i--) {
-        const project = projects[i];
-
-        const projectDiv = document.createElement("div");
-        projectDiv.classList.add("card", "medium");
-        projectDiv.style.marginBottom = "20px";
-
-        projectDiv.innerHTML = `
-        <div class="card-content">
-          <span class="card-title">${project.title}</span>
-          <p>${project.description}</p>
-        </div>
-      `;
-
-        container.appendChild(projectDiv);
+        container.appendChild(buildCard(projects[i]));
       }
-      currentIndex = -1; // mark as done
+      currentIndex = -1;
       document.getElementById("load-more-btn").style.display = "none";
     } else {
-      // Show only the latest project first
       const project = projects[currentIndex];
-      const projectDiv = document.createElement("div");
-      projectDiv.classList.add("card", "medium");
-      projectDiv.style.marginBottom = "20px";
-
-      projectDiv.innerHTML = `
-      <div class="card-content">
-        <span class="card-title">${project.title}</span>
-        <p>${project.description}</p>
-      </div>
-    `;
-
-      container.appendChild(projectDiv);
+      container.appendChild(buildCard(project));
       currentIndex--;
 
       if (currentIndex < 0) {
@@ -141,6 +135,37 @@
     }
   }
 
+  function buildCard(project) {
+    const colDiv = document.createElement("div");
+    colDiv.classList.add("col", "s12", "m6", "l4");
+
+    colDiv.innerHTML = `
+      <div class="card medium">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img src="${project.image}" alt="${project.title}" style="height:100%;width:100%" class="activator"/>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator teal-text hoverline">${project.title}
+            <i class="mdi-navigation-more-vert right"></i>
+          </span>
+          <p>${project.shortDescription}</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text"><small>Accomplishments</small>
+            <i class="mdi-navigation-close right"></i>
+          </span>
+          <ul>
+            <li><b>Tools:</b> ${project.tools.join(", ")}</li>
+            ${project.accomplishments.map(acc => `<li>${acc}</li>`).join("")}
+          </ul>
+        </div>
+      </div>
+    `;
+
+    return colDiv;
+  }
+
+  // Initial load
   window.onload = () => {
     renderProjects(); // show latest first
     document.getElementById("load-more-btn").addEventListener("click", () => renderProjects(true));
