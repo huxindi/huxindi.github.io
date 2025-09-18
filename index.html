@@ -98,18 +98,19 @@
   let currentIndex = projects.length - 1; // start with latest
   const projectsPerLoad = 1;
 
-  function renderProjects() {
+  function renderProjects(loadAll = false) {
     const container = document.getElementById("projects-container");
-    let endIndex = currentIndex - projectsPerLoad + 1;
 
-    for (let i = currentIndex; i >= endIndex && i >= 0; i--) {
-      const project = projects[i];
+    if (loadAll) {
+      // Load ALL remaining projects
+      for (let i = currentIndex; i >= 0; i--) {
+        const project = projects[i];
 
-      const projectDiv = document.createElement("div");
-      projectDiv.classList.add("card", "medium");
-      projectDiv.style.marginBottom = "20px";
+        const projectDiv = document.createElement("div");
+        projectDiv.classList.add("card", "medium");
+        projectDiv.style.marginBottom = "20px";
 
-      projectDiv.innerHTML = `
+        projectDiv.innerHTML = `
         <div class="card-content">
           <span class="card-title">${project.title}</span>
           <p>${project.description}</p>
@@ -119,19 +120,39 @@
         </div>
       `;
 
-      container.appendChild(projectDiv);
-    }
-
-    currentIndex = endIndex - 1;
-
-    if (currentIndex < 0) {
+        container.appendChild(projectDiv);
+      }
+      currentIndex = -1; // mark as done
       document.getElementById("load-more-btn").style.display = "none";
+    } else {
+      // Show only the latest project first
+      const project = projects[currentIndex];
+      const projectDiv = document.createElement("div");
+      projectDiv.classList.add("card", "medium");
+      projectDiv.style.marginBottom = "20px";
+
+      projectDiv.innerHTML = `
+      <div class="card-content">
+        <span class="card-title">${project.title}</span>
+        <p>${project.description}</p>
+      </div>
+      <div class="card-action">
+        <a href="${project.link}" target="_blank">View Project</a>
+      </div>
+    `;
+
+      container.appendChild(projectDiv);
+      currentIndex--;
+
+      if (currentIndex < 0) {
+        document.getElementById("load-more-btn").style.display = "none";
+      }
     }
   }
 
   window.onload = () => {
-    renderProjects(); // show the latest project first
-    document.getElementById("load-more-btn").addEventListener("click", renderProjects);
+    renderProjects(); // show latest first
+    document.getElementById("load-more-btn").addEventListener("click", () => renderProjects(true));
   };
 </script>
 
