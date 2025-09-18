@@ -7,11 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PGZH8HT');</script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PGZH8HT');</script>
   <!-- End Google Tag Manager -->
 
   <!-- Materialize - Compiled and minified CSS-->
@@ -48,7 +51,8 @@
   <meta name="twitter:description" content="Software Developer" />
   <meta name="twitter:url" content="https://twitter.com/varad_bhogayata" />
   <meta name="author" content="Varad Bhogayata" />
-  <meta name="description" content="Software Developer with a passion for backend development and artificial intelligence." />
+  <meta name="description"
+    content="Software Developer with a passion for backend development and artificial intelligence." />
   <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png" />
   <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png" />
   <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png" />
@@ -71,12 +75,72 @@
   <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
 </head>
 
+<script>
+  // Array of your 3 projects (latest last)
+  const projects = [
+    {
+      title: "Car Detection Model",
+      description: "An object detection machine learning model.",
+      link: "#"
+    },
+    {
+      title: "Map App",
+      description: "A GIS navigation system.",
+      link: "#"
+    },
+    {
+      title: "Pixel War",
+      description: "An arcade-style game on FPGA using C and Assembly.",
+      link: "#"
+    }
+  ];
+
+  let currentIndex = projects.length - 1; // start with latest
+  const projectsPerLoad = 1;
+
+  function renderProjects() {
+    const container = document.getElementById("projects-container");
+    let endIndex = currentIndex - projectsPerLoad + 1;
+
+    for (let i = currentIndex; i >= endIndex && i >= 0; i--) {
+      const project = projects[i];
+
+      const projectDiv = document.createElement("div");
+      projectDiv.classList.add("card", "medium");
+      projectDiv.style.marginBottom = "20px";
+
+      projectDiv.innerHTML = `
+        <div class="card-content">
+          <span class="card-title">${project.title}</span>
+          <p>${project.description}</p>
+        </div>
+        <div class="card-action">
+          <a href="${project.link}" target="_blank">View Project</a>
+        </div>
+      `;
+
+      container.appendChild(projectDiv);
+    }
+
+    currentIndex = endIndex - 1;
+
+    if (currentIndex < 0) {
+      document.getElementById("load-more-btn").style.display = "none";
+    }
+  }
+
+  window.onload = () => {
+    renderProjects(); // show the latest project first
+    document.getElementById("load-more-btn").addEventListener("click", renderProjects);
+  };
+</script>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZH8HT"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZH8HT" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
   </noscript>
-  
+
   <!-- Navigation Menu-->
   <!-- Nav class 1 -->
   <nav class="hide-on-small-only">
@@ -107,6 +171,13 @@
       </li>
 
       <li class="bold">
+        <!-- mdi-av-web small
+             mdi-av-my-library-books small-->
+        <a aria-label="Navigate to the Recent Projects section" href="#recent projects" class="waves-effect waves-dark teal-text"><i
+            class="mdi-av-my-library-books small"></i><span>Recent Projects</span></a>
+      </li>
+
+      <li class="bold">
         <!--
         ICONS:
         mdi-action-assessment
@@ -116,7 +187,7 @@
         <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
             class="mdi-action-assessment small"></i><span>Skills</span></a>
       </li>
-      
+
       <li class="bold">
         <!--
         ICONS:
@@ -147,13 +218,14 @@
         <!-- <a aria-label="Open Varad's resume in a new tab" href="#resume" target="_blank"
           onclick="window.open('https://drive.google.com/file/d/1vYi-bMyIsZPve0x_clxY8xsDtiHiOMd3/view?usp=sharing')"
           class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a> -->
-        <a aria-label="Open Xindi's resume in a new tab" href="https://huxindi.github.io/assets/resume/XindiHu_Resume.pdf" target="_blank"
-        class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>  
+        <a aria-label="Open Xindi's resume in a new tab"
+          href="https://huxindi.github.io/assets/resume/XindiHu_Resume.pdf" target="_blank"
+          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
       </li>
 
       <li class="bold">
-        <a aria-label="Navigate to the Place Travelled section" href="#Place Travelled" class="waves-effect waves-dark teal-text"><i
-            class="fa fa-globe small"></i><span>Place Travelled</span></a>
+        <a aria-label="Navigate to the Place Travelled section" href="#Place Travelled"
+          class="waves-effect waves-dark teal-text"><i class="fa fa-globe small"></i><span>Place Travelled</span></a>
       </li>
     </ul>
   </nav>
@@ -217,7 +289,8 @@
               <h2>Hi, I'm <span class="teal">Xindi Hu.</span></h2>
               <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#f8d794"></span></h5>
               <!-- <h5 style="color:#00796b">A <span class="typing" style="font-weight: 300; color:#fff"></span></h5> -->
-              <h5>Driven and self-motivated programmer with a curious mind who learns quickly and thrives on solving real world issues.</h5>
+              <h5>Driven and self-motivated programmer with a curious mind who learns quickly and thrives on solving
+                real world issues.</h5>
             </div>
             <div class="social">
               <a href="https://www.linkedin.com/in/xindi-hu-3a6522259/" target="_blank">
@@ -263,22 +336,26 @@
             A Software Developer with a passion for Backend Development and Artificial Intelligence.
 
           </h2>
-        </blockquote> -->        
+        </blockquote> -->
         <p>
-          I am a Computer Engineering student at the University of Toronto with a strong dedication to solving complex problems through code. I bring a disciplined work ethic and consistently deliver high quality results.
+          I am a Computer Engineering student at the University of Toronto with a strong dedication to solving complex
+          problems through code. I bring a disciplined work ethic and consistently deliver high quality results.
 
-          I'm proficient in Python, MySQL, PostgreSQL, HTML5, CSS, Java, C/C++, and Verilog. My 16 months of professional experience have deepened my skills especially in Python and C, enabling me to contribute meaningfully to software development projects.
+          I'm proficient in Python, MySQL, PostgreSQL, HTML5, CSS, Java, C/C++, and Verilog. My 16 months of
+          professional experience have deepened my skills especially in Python and C, enabling me to contribute
+          meaningfully to software development projects.
 
-          I'm driven by a passion for engineering solutions that address real world challenges and deliver value at scale.
+          I'm driven by a passion for engineering solutions that address real world challenges and deliver value at
+          scale.
         </p>
         <p>
-          <ul>
-            <li><b>Languages:</b> Python, JavaScript, C, C++, HTML/CSS, Bash</li>
-            <li><b>Tools & Technologies:</b> Git, AWS, JIRA</li>
-          </ul>
-          
+        <ul>
+          <li><b>Languages:</b> Python, JavaScript, C, C++, HTML/CSS, Bash</li>
+          <li><b>Tools & Technologies:</b> Git, AWS, JIRA</li>
+        </ul>
+
         </p>
-          
+
         <!-- <p>
           
           Detail-oriented Software Developer with professional experience in Backend Development, Machine Learning, Computer Vision. I am adept in Python, Django, Flask, SQL, Machine Learning, Computer Vision.           
@@ -311,8 +388,8 @@
           <div class="card-content">
             <div class="row">
               <div class="col s12 m2">
-                <a href="https://www.indie.inc" target="_blank"><img alt="indie logo"
-                    src="/assets/img/indie.png" class="responsive-img center-block" /></a>
+                <a href="https://www.indie.inc" target="_blank"><img alt="indie logo" src="/assets/img/indie.png"
+                    class="responsive-img center-block" /></a>
               </div>
               <!-- <div class="col s12 m10"> -->
               <div class="col s12 m10">
@@ -324,10 +401,16 @@
             </div>
             <div class="role brown-text text-darken-2">Embedded Software Engineering Intern</div>
             <ul>
-              <li>Collaborated with software/hardware development team to design and implement firmware validation and verification tests for Host Tools API, SDK API, and software tools using Python, C, and Robot Framework.</li>
-              <li>Implemented test cases that interfaced with image sensors and processor chips via SPI, I²C, and UART communication protocols to validate on-device drivers and ensure reliable hardware-software integration across various APIs.</li>
-              <li>Developed automated scripts to parse and validate 30+ APIs for multiple hardware configurations and features, achieving 100% test automation coverage.</li>
-              <li>Utilized Git for version control and integrated Git with JIRA to manage workflows, track development progress, and handle multiple branches efficiently.</li>
+              <li>Collaborated with software/hardware development team to design and implement firmware validation and
+                verification tests for Host Tools API, SDK API, and software tools using Python, C, and Robot Framework.
+              </li>
+              <li>Implemented test cases that interfaced with image sensors and processor chips via SPI, I²C, and UART
+                communication protocols to validate on-device drivers and ensure reliable hardware-software integration
+                across various APIs.</li>
+              <li>Developed automated scripts to parse and validate 30+ APIs for multiple hardware configurations and
+                features, achieving 100% test automation coverage.</li>
+              <li>Utilized Git for version control and integrated Git with JIRA to manage workflows, track development
+                progress, and handle multiple branches efficiently.</li>
               <li>
                 <b>Tools:</b> Python, C
               </li>
@@ -338,7 +421,7 @@
           </div>
         </div>
 
-        
+
         <div class="card">
           <div class="card-content">
             <div class="row">
@@ -352,9 +435,12 @@
             </div>
             <div class="role brown-text text-darken-2">Embedded System Engineer Intern</div>
             <ul>
-              <li>Engineered an advanced control algorithm using C and Verilog on a TMS320F2812 microcontroller, enhanced the Electric Fuel Car's power performance by 0.52% </li>
-              <li>Implemented a function for real-time engine speed calculation, integrated 3 facets of input to build a feed-back algorithm, optimized the vehicle's power efficiency and responsiveness. </li>
-              <li>Conducted comprehensive design verifications and collaborated with the team toward project requirements, ensured seamless code function.</li>
+              <li>Engineered an advanced control algorithm using C and Verilog on a TMS320F2812 microcontroller,
+                enhanced the Electric Fuel Car's power performance by 0.52% </li>
+              <li>Implemented a function for real-time engine speed calculation, integrated 3 facets of input to build a
+                feed-back algorithm, optimized the vehicle's power efficiency and responsiveness. </li>
+              <li>Conducted comprehensive design verifications and collaborated with the team toward project
+                requirements, ensured seamless code function.</li>
               <li>
                 <b>Tools:</b> C
               </li>
@@ -376,7 +462,8 @@
           <div class="col s12 m6 l4">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
-                <img alt="music streaming app" src="/assets/img/project-music-player.png" style="height: 100%; width: 100%" class="activator" />
+                <img alt="music streaming app" src="/assets/img/project-music-player.png"
+                  style="height: 100%; width: 100%" class="activator" />
               </div>
               <div class="card-content">
                 <span class="card-title activator teal-text hoverline">Car Detection Model<i
@@ -392,14 +479,20 @@
                     class="mdi-navigation-close right"></i></span>
                 <ul>
                   <li><b>Tools:</b> Python, PyTorch</li>
-                  <li>Collaborated in an Agile Scrum team to contribute to the development of a Faster R-CNN based object detection
-and segmentation model for automated vehicles, focused on enhancing traffic and obstacle detection</li>
+                  <li>Collaborated in an Agile Scrum team to contribute to the development of a Faster R-CNN based
+                    object detection
+                    and segmentation model for automated vehicles, focused on enhancing traffic and obstacle detection
+                  </li>
                   <li>Spearheaded the acquisition and processing of 100,000+ images from the various public dataset,
-emphasized efficient data pre-processing and conversion to tensors for optimal Pytorch performance.</li>
-                  <li>Managed the designing the architecture of a foundational model, integrated 30+ convolution layers with multiple
-pooling techniques to establish a valid comparison case for the main model in our automated vehicle project</li>
-                  <li>Engaged in thorough theoretical testing and data-driven optimization of the model, focused on enhancing
-accuracy and robustness for its application in automated driving systems.</li>
+                    emphasized efficient data pre-processing and conversion to tensors for optimal Pytorch performance.
+                  </li>
+                  <li>Managed the designing the architecture of a foundational model, integrated 30+ convolution layers
+                    with multiple
+                    pooling techniques to establish a valid comparison case for the main model in our automated vehicle
+                    project</li>
+                  <li>Engaged in thorough theoretical testing and data-driven optimization of the model, focused on
+                    enhancing
+                    accuracy and robustness for its application in automated driving systems.</li>
 
 
                 </ul>
@@ -410,7 +503,8 @@ accuracy and robustness for its application in automated driving systems.</li>
           <div class="col s12 m6 l4">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
-                <img alt="quiz app" src="/assets/img/project-quizup-logo-1.png" style="height: 100%; width: 100%" class="activator" />
+                <img alt="quiz app" src="/assets/img/project-quizup-logo-1.png" style="height: 100%; width: 100%"
+                  class="activator" />
               </div>
               <div class="card-content">
                 <span class="card-title activator teal-text hoverline">Map App<i
@@ -426,9 +520,15 @@ accuracy and robustness for its application in automated driving systems.</li>
                     class="mdi-navigation-close right"></i></span>
                 <ul>
                   <li><b>Tools:</b> C++</li>
-                  <li>Led the vision and scope definition through initial planning meetings, established a detailed product roadmap, and formulated release plans. Facilitated team progress with regular sprint planning, daily stand-ups, and ensured continuous improvement through sprint reviews and retrospectives.</li>
-                  <li>Cached data from public APIs, including OpenStreetMap (OSM) API, into self-developed data structures, to achieve a response time deduction of 78% in average, 99% in extreme cases according to system timer.</li>
-                  <li>Enhanced a Dijkstra-based pathfinding algorithm to optimize route calculations, secured a distinguished 7th place ranking among over 90 teams in a competitive class setting.</li>
+                  <li>Led the vision and scope definition through initial planning meetings, established a detailed
+                    product roadmap, and formulated release plans. Facilitated team progress with regular sprint
+                    planning, daily stand-ups, and ensured continuous improvement through sprint reviews and
+                    retrospectives.</li>
+                  <li>Cached data from public APIs, including OpenStreetMap (OSM) API, into self-developed data
+                    structures, to achieve a response time deduction of 78% in average, 99% in extreme cases according
+                    to system timer.</li>
+                  <li>Enhanced a Dijkstra-based pathfinding algorithm to optimize route calculations, secured a
+                    distinguished 7th place ranking among over 90 teams in a competitive class setting.</li>
 
                 </ul>
               </div>
@@ -477,7 +577,7 @@ accuracy and robustness for its application in automated driving systems.</li>
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
                 <img alt="Screenshot of web app" src="/assets/img/project-blog-logo.jpg"
-                style="height: 100%; width: 100%" class="activator" />
+                  style="height: 100%; width: 100%" class="activator" />
               </div>
               <div class="card-content">
                 <span class="card-title activator teal-text hoverline">Pixel War<i
@@ -493,15 +593,33 @@ accuracy and robustness for its application in automated driving systems.</li>
                     class="mdi-navigation-close right"></i></span>
                 <ul>
                   <li><b>Tools:</b> C, Assembly</li>
-                  <li>Led a two-person team in developing Pixel War Game, an acclaimed arcade-style video game designed for FPGA board. Established a git-based collaborative environment and implemented a 4-phase structured workflow.</li>
-                  <li>Utilized C programming and hardware interrupts for efficient management of 6 IO devices. Achieved real-time response to player inputs by handling interrupts from both the PS/2 keyboard and the DE1-Soc board, enhancing user interaction and system responsiveness.</li>
-                  <li>Crafted an engaging and visually appealing game user interface using a VGA interface, earned an outstanding coursework grade of 85% for its high playability and impressive visual aesthetics.</li>
+                  <li>Led a two-person team in developing Pixel War Game, an acclaimed arcade-style video game designed
+                    for FPGA board. Established a git-based collaborative environment and implemented a 4-phase
+                    structured workflow.</li>
+                  <li>Utilized C programming and hardware interrupts for efficient management of 6 IO devices. Achieved
+                    real-time response to player inputs by handling interrupts from both the PS/2 keyboard and the
+                    DE1-Soc board, enhancing user interaction and system responsiveness.</li>
+                  <li>Crafted an engaging and visually appealing game user interface using a VGA interface, earned an
+                    outstanding coursework grade of 85% for its high playability and impressive visual aesthetics.</li>
 
 
                 </ul>
               </div>
             </div>
           </div>
+
+          <section id="recent-projects" class="section scrollspy">
+            <div class="container">
+              <h3 class="page-title white-text teal">Recent Projects</h3>
+              <!-- JS will inject projects here -->
+              <div id="projects-container"></div>
+
+              <!-- Load More button -->
+              <div class="center-align" style="margin-top:20px;">
+                <button id="load-more-btn" class="btn waves-effect waves-light teal">Load More</button>
+              </div>
+            </div>
+          </section>
           <!-- ************* -->
         </div>
       </div>
@@ -602,11 +720,12 @@ accuracy and robustness for its application in automated driving systems.</li>
             <div class="card">
               <div class="card-content">
                 <p>
-                  <span class="card-title"><a href="https://www.utoronto.ca/" target="_blank" class="teal-text hoverline">University of Toronto</a></span>
+                  <span class="card-title"><a href="https://www.utoronto.ca/" target="_blank"
+                      class="teal-text hoverline">University of Toronto</a></span>
                 </p>
                 <p class="brown-text">Toronto, Canada</p>
                 <p>
-                  <b>Degree: </b>Bachelor of Applied Science and Engineering     
+                  <b>Degree: </b>Bachelor of Applied Science and Engineering
                   <br>
                   <b>CGPA: </b>3.3/4.0
                 </p>
@@ -616,7 +735,7 @@ accuracy and robustness for its application in automated driving systems.</li>
                     <b>Relevant Courseworks:</b>
                   <ul>
                     <li>Operating Systems</li>
-                    <li>Foundations of Algorithms</li>                    
+                    <li>Foundations of Algorithms</li>
                   </ul>
                   </p>
 
@@ -624,7 +743,7 @@ accuracy and robustness for its application in automated driving systems.</li>
               </div>
             </div>
 
-            
+
           </div>
         </div>
       </div>
@@ -646,8 +765,8 @@ accuracy and robustness for its application in automated driving systems.</li>
               class="hoverline">xindihu.hu@mail.utoronto.ca</a></a>
         </p>
         <p>
-          <a aria-label="View Xindi on GitHub" href="http://github.com/huxindi" target="_blank"
-            data-position="top" data-tooltip="View Xindi on GitHub"
+          <a aria-label="View Xindi on GitHub" href="http://github.com/huxindi" target="_blank" data-position="top"
+            data-tooltip="View Xindi on GitHub"
             class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-github"></i><a
               aria-label="Xindi on Github" href="http://github.com/huxindi" class="hoverline"
               target="_blank">github.com/huxindi</a></a>
@@ -656,8 +775,9 @@ accuracy and robustness for its application in automated driving systems.</li>
           <a aria-label="View Xindi on LinkedIn" href="https://www.linkedin.com/in/xindi-hu-3a6522259/" target="_blank"
             data-position="top" data-tooltip="View Xindi on LinkedIn"
             class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-linkedin"></i><a aria-label="Varad on LinkedIn" href="https://www.linkedin.com/in/xindi-hu-3a6522259/"
-              class="hoverline" target="_blank">linkedin.com/in/xindi-hu-3a6522259/</a></a>
+              class="fa fa-linkedin"></i><a aria-label="Varad on LinkedIn"
+              href="https://www.linkedin.com/in/xindi-hu-3a6522259/" class="hoverline"
+              target="_blank">linkedin.com/in/xindi-hu-3a6522259/</a></a>
         </p>
       </div>
     </section>
@@ -666,13 +786,8 @@ accuracy and robustness for its application in automated driving systems.</li>
       <h3 class="page-title white-text teal">Place Travelled</h3>
       <div class="container">
         <div class="video-container">
-          <iframe
-            src="https://www.google.com/maps/d/u/0/embed?mid=1GXGToGUkTRTndVDprsa0jPANva-anCU&ehbc=2E312F"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            loading="lazy"
-            allowfullscreen="">
+          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1GXGToGUkTRTndVDprsa0jPANva-anCU&ehbc=2E312F"
+            width="100%" height="100%" style="border:0;" loading="lazy" allowfullscreen="">
           </iframe>
         </div>
       </div>
@@ -683,7 +798,7 @@ accuracy and robustness for its application in automated driving systems.</li>
   <!-- typed.js -->
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script type="text/javascript">
-    var typed = new Typed('.typing',{
+    var typed = new Typed('.typing', {
       strings: ["Pythonist", "Developer", "Fast Learner"],
       loop: true,
       typeSpeed: 80,
